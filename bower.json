@@ -1,7 +1,7 @@
 {
   "name": "angular-indexedDB",
   "main": "angular-indexedDB.js",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/gdi2290/angular-indexedDB",
   "authors": [
     "gdi2290 <github@gdi2290.com>"

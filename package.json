@@ -1,6 +1,6 @@
 {
-  "name": "angular-indexedDB",
-  "version": "0.0.0",
+  "name": "angular-indexeddb",
+  "version": "0.0.1",
   "description": "",
   "main": "angular-indexedDB.js",
   "scripts": {
