@@ -1,0 +1,19 @@
+{
+  "name": "angular-indexedDB",
+  "version": "0.0.0",
+  "description": "",
+  "main": "angular-indexedDB.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gdi2290/angular-indexedDB.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gdi2290/angular-indexedDB/issues"
+  },
+  "homepage": "https://github.com/gdi2290/angular-indexedDB"
+}
