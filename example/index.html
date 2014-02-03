@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Angular Indexed DB</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-animate.js"></script>
+  <script src="../angular-indexedDB.js"></script>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="stylesheet" type="text/css" href="animate.css">
+</head>
+<body ng-app="app">
+  <div ng-controller="TodoCtrl">
+    <h1>Todo with IndexedDB</h1>
+    <ul>
+      <li class="slide-right" ng-repeat="todo in todos">
+        <input type="checkbox" ng-model="todo.complete"/>
+        <span ng-click="complete(todo)" ng-class="{complete: todo.complete}">
+          {{ todo.content }}
+        </span>
+        <span ng-click="remove($index)">[X]</span>
+      </li>
+    </ul>
+    <form ng-submit="add(newTodo)">
+      <input type="text" ng-model="newTodo.content" autofocus/>
+      <button>Submit</button>
+    </form>
+  </div>
+</body>
+
+  <script>
+    // Full stack trace
+    Error.stackTraceLimit = Infinity;
+  </script>
+
+
+
+  <script>
+    // Load angular modules
+    angular.module('app', [
+      'ngIndexedDB',
+      'ngAnimate'
+    ])
+    .factory('IndexedDB', function($window, $q) {
+      return {
+        get: function() {
+          $q.defer();
+
+          $q.resolve();
+
+          return $q.promise;
+        }
+      }
+    })
+    .controller('TodoCtrl', function($scope, IndexedDB) {
+
+      $scope.todos = [];
+
+      $scope.add = function(todo) {
+        $scope.todos.push(todo);
+        $scope.newTodo = {};
+      };
+
+      $scope.remove = function(index) {
+        $scope.todos.splice(index, 1);
+      };
+
+      $scope.complete = function(todo) {
+        todo.complete = !todo.complete;
+      };
+
+    });
+
+
+  </script>
+</html>
+
