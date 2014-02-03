@@ -4,7 +4,7 @@
   angular.module('angular-indexedDB', ['ngIndexedDB']);
 
   angular.module('ngIndexedDB', [])
-  .factory('IndexedDB', function() {
+  .factory('IndexedDB', function($window, $q) {
 
   });
 
