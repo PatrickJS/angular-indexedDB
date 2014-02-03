@@ -15,7 +15,7 @@
       <li class="slide-right" ng-repeat="todo in todos">
         <input type="checkbox" ng-model="todo.complete"/>
         <span ng-click="complete(todo)" ng-class="{complete: todo.complete}">
-          {{ todo.content }}
+          Id: {{ todo.id }} - {{ todo.content }}
         </span>
         <span class="pointer" ng-click="remove(todo)">[X]</span>
       </li>
@@ -42,18 +42,36 @@
     ])
     .factory('TodoService', function($window, $q, $indexedDB) {
       var _todos = [];
+
+      var counter = (function() {
+        var count = 0;
+        return function() {
+          return ++count;
+        }
+      }());
+
+
       return {
         get: function() {
           return _todos;
         },
         add: function(todo) {
+          todo.id = counter();
           _todos.push(todo);
         },
         remove: function(todo) {
           var index = _todos.indexOf(todo);
-          _todos.splice(index, 1);
+          if (index !== -1) {
+            _todos.splice(index, 1);
+          }
+        },
+        update: function(todo) {
+
         }
+
+
       };
+
     })
     .controller('TodoCtrl', function($scope, TodoService) {
 
